@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+* {
+  outline-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  @apply py-0 px-[15%];
+}
+
+/* primary navbar */
+.primary-navbar {
+  @apply flex items-center justify-center py-5 bg-slate-900 text-white; /* border-b-[4px] border-orange-500*/
+}
+
+/* primary navbar - left side */
+.primary-navbar .left-side {
+  @apply mr-auto w-32;
+}
+
+/* primary navbar - search bar */
+.searchbar {
+  @apply flex justify-center items-center text-gray-600;
+}
+
+.bl-border-radius {
+  border-top-left-radius: 20px !important;
+  border-bottom-left-radius: 0px !important;
+}
+.searchbar input[type="search"] {
+  @apply h-10 pl-2;
+}
+.searchbar .search-btn {
+  @apply flex justify-center items-center text-white rounded-br-full rounded-tr-full h-10 bg-orange-500 px-6 cursor-pointer;
+}
+.searchbar select {
+  @apply px-4 text-gray-600 h-10 rounded-tl-full rounded-bl-full border-r-[1px];
+}
+/* primary navbar - right side */
+.primary-navbar .right-side {
+  @apply flex text-center items-center ml-auto;
+}
+.primary-navbar .right-side .btn {
+  @apply mr-10 flex-col justify-center items-center cursor-pointer;
+}
+.primary-navbar .right-side .btn .icon {
+  @apply flex justify-center relative items-center;
+}
+.primary-navbar .right-side .btn .quantity-bubble {
+  @apply absolute h-4 w-4 top-[-9px] right-4 text-[8px] flex justify-center items-center bg-red-600 rounded-full;
+}
+/* secondary navbar */
+
+.secondary-navbar {
+  @apply flex justify-start items-center bg-white py-4 border-b-[2px] text-gray-600;
+}
+.secondary-navbar * {
+  @apply flex justify-center items-center mr-5;
+}
+
+.main {
+  @apply py-10;
+}
+
+/* home */
+.collections {
+  @apply flex justify-around gap-x-5 items-center;
+}
+.collections article {
+  @apply flex justify-start items-center shadow-xl h-60 w-72 cursor-pointer transition duration-500;
+}
+.collections article:hover {
+  transform: scale(1.05);
+}
+.collections .laptops {
+  background-image: url("./images/laptops.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.collections .cameras {
+  background-image: url("./images/cameras.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.collections .accessories {
+  background-image: url("./images/accessories.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.overlay {
+  @apply self-stretch flex-col justify-start p-5 items-baseline bg-orange-500 opacity-90 text-white w-[90%];
+  clip-path: polygon(0 0, 100% 0%, 20% 100%, 0% 100%);
+  transition: 0.5s;
+}
+
+/* products */
+
+.products {
+  margin-top: 1%;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr;
+}
+.product-section {
+  margin-right: 5%;
+  gap: 2%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 20rem));
+  grid-template-rows: repeat(auto-fit, minmax(28rem, 1fr));
+}
+.product-card {
+  @apply rounded-[3px] flex flex-col justify-between p-5 text-gray-400 shadow-xl shadow-slate-400 h-full w-full max-h-[600px] cursor-pointer;
+}
+.product-card-header {
+  word-wrap: break-word;
+}
+.product-card .price {
+  @apply text-red-700;
+}
+.product-card-body {
+  @apply flex items-center justify-center max-h-[300px];
+}
+.product-card-body img {
+  @apply max-h-[300px] max-w-[300px];
+}
+.product-card-footer {
+  @apply flex justify-around items-center gap-5;
+}
+.add-to-cart-button {
+  @apply bg-orange-500 w-[60%] text-white rounded-md transition duration-75 p-2;
+}
+.add-to-cart-button:hover {
+  @apply bg-orange-400;
+}
+.add-to-wishlist-button {
+  @apply flex items-center justify-center w-[20%];
+}
+.product-card-footer .price {
+  @apply text-center w-[20%];
+}
+.filter-section {
+  @apply flex justify-center;
+}
+
+.filters {
+  @apply text-gray-600;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+
+  padding: 20px;
+}
+.filters label {
+  margin-bottom: 10px;
+}
+/* single product*/
+
+.single-product-display {
+  @apply grid gap-4 grid-cols-2 grid-rows-2 h-full;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: 3fr 2fr;
+}
+.single-product-img {
+  @apply p-5 flex justify-center items-center;
+}
+.single-product-img img {
+  @apply max-h-[350px] max-w-[350px];
+}
+.single-product-info {
+  @apply p-5;
+}
+.single-product-info .name {
+  @apply text-xl p-2 text-left text-gray-500;
+}
+.single-product-reviews {
+  @apply col-span-2;
+}
+.spec-overview {
+  @apply grid gap-2 p-2 grid-cols-2;
+  grid-template-rows: repeat(auto-fit, 1fr);
+  grid-template-columns: 1fr 8fr;
+}
+.spec-overview .spec-name {
+  @apply border-b-slate-200 border-b-[1px] flex justify-start items-center py-1 px-2;
+}
+.spec-overview .spec-value {
+  @apply border-b-slate-200 border-b-[1px] flex items-center justify-start py-1 px-2;
+}
+/* Modal */
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9997;
+}
+
+.modal-container {
+  font-weight: 600;
+  background-color: #0a192f;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  left: 50%;
+  border-radius: 10px;
+  width: 400px;
+  padding: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 9998;
+}
+
+.modal-background {
+  @apply fixed left-0 top-0 w-full h-full bg-opacity-50 bg-black z-[9997];
+}
+
+.modal-container {
+  @apply min-h-[75%] min-w-[33.333%] rounded-md p-5 bg-white fixed top-[50%] left-[50%] bg-opacity-100;
+}

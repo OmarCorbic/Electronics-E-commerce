@@ -1,0 +1,223 @@
+[
+  {
+    "name": "ACER Swift 3 laptop SF316-51-55BH",
+    "price": 1279,
+    "brand": "ACER",
+    "rating": 4,
+    "imgUrl": "https://www.ue.ba/img/product/33143-ACER-Swift-3-SF316-51-55BH-laptop-NXABDAA006-1.webp",
+    "category": "laptops",
+    "specifications": [
+      { "display": "16.1 inch, 1920 x 1080px, IPS" },
+      {
+        "processor": "Intel Core i5 11300H (3100-4400MHz, cores: 4/8 (physical/logical), Cache: 8192)"
+      },
+      { "memory": "8GB DDR4" },
+      { "storage": "512GB SSD" },
+      { "graphics": "Intel Iris Xe Graphics, Type: Integrated" },
+      { "system": "Windows 11 Home" },
+      {
+        "keyboard": "Localization: US-International, Background lighting: White"
+      },
+      { "warranty": "12 months" },
+      { "weight": "1.7kg" },
+      { "color": "Gray" },
+      {
+        "other": "WebCam, Wi-Fi, Bluetooth 5.0, Finger Print Reader, 1 x HDMI, 2 x USB 3.2 Type-A, 1 x USB 3.2 Type-C, Audio-Combo"
+      }
+    ]
+  },
+  {
+    "name": "HP 15s-fq5024nm laptop 6M5C2EA",
+    "price": 1299,
+    "brand": "HP",
+    "rating": 5,
+    "imgUrl": "https://www.ue.ba/img/product/33851-HP-15s-fq5024nm-laptop-6M5C2EA-1.webp",
+    "category": "laptops",
+    "specifications": [
+      { "display": "5.6 inch, 1920 x 1080px" },
+      {
+        "processor": "Intel Core i5 1235U (3300-4400MHz, cores: 10/12 (physical/logical), Cache: 12288)"
+      },
+      { "memory": "16GB DDR4" },
+      { "storage": "512GB SSD" },
+      { "graphics": "Intel Iris Xe Graphics, Type: Integrated" },
+      { "system": "FreeDos" },
+      { "keyboard": "" },
+      { "warranty": "12 months" },
+      { "weight": "1.69kg" },
+      { "color": "Gray" },
+      {
+        "other": "Webcam, WiFi 6, Bluetooth, HDMI, 2x USB Type-A, USB Type-C, headphone/microphone combo, Battery: 41Wh LI 3-Cell"
+      }
+    ]
+  },
+  {
+    "name": "DELL XPS 9320 Plus laptop INS0132222-R0021261",
+    "price": 3849,
+    "brand": "DELL",
+    "rating": 4.9,
+    "imgUrl": "https://www.ue.ba/img/product/33636-DELL-XPS-XPS-9320-Plus-laptop-INS0132222-R0021261-1.webp",
+    "category": "laptops",
+    "specifications": [
+      { "display": "13.4 inch, 3456 x 2160px, OLED Touch 3.5K, InfinityEdge" },
+      {
+        "processor": "Intel Core i7-1260P (3400-4700MHz, cores: 12/18 (physical/logical), Cache: 18MB)"
+      },
+      { "memory": "16GB DDR5" },
+      { "storage": "512GB SSD" },
+      { "graphics": "Intel Iris Xe Graphics, Type: Integrated" },
+      { "system": "Windows 11 Pro" },
+      {
+        "keyboard": "Localization: US-International, Background lighting: Single color"
+      },
+      { "warranty": "12 months" },
+      { "weight": "1.26kg" },
+      { "color": "Gray" },
+      {
+        "other": "1080P FHD, 2 x Thunderbolt 4 (USB Type-C with DisplayPort and Power Delivery), USB-C to USB-A 3.0 adapter (included in the box), USB-C to 3.5mm headset adapter (included in the box), Battery: 45Wh"
+      }
+    ]
+  },
+  {
+    "name": "DELL Vostro 3510 laptop N8066VN 3510EMEA01_2201_UBU",
+    "price": 1549,
+    "brand": "DELL",
+    "rating": 4.9,
+    "imgUrl": "https://www.ue.ba/img/product/31919-Dell-Vostro-3510-Core-i5-1135G7-8GB-512GB-SSD-PCIe-156-FHD-Intel-UHD-2x-USB-32-Gen-1-1x-US-1.webp",
+    "category": "laptops",
+    "specifications": [
+      { "display": "15.6 inch, 1920 x 1080px" },
+      {
+        "processor": "Intel Core i5-1135G7 (2400-4200MHz, cores: 4/8 (physical/logical), Cache: 8192)"
+      },
+      { "memory": "8GB DDR4" },
+      { "storage": "512GB SSD" },
+      { "graphics": "Intel Iris Xe Graphics, Type: Integrated" },
+      { "system": "Linux" },
+      {
+        "keyboard": ""
+      },
+      { "warranty": "36 months" },
+      { "weight": "1.69kg" },
+      { "color": "Black" },
+      {
+        "other": "WebCam, WiFi, LAN: Yes, Bluetooth, HDMI, 2x USB 3.2, USB 2.0, Audio/Mic combo jack"
+      }
+    ]
+  },
+  {
+    "name": "LENOVO IdeaPad 3 15ACH6 Gaming laptop 82K201RBSC",
+    "price": 2899,
+    "brand": "LENOVO",
+    "rating": 4.8,
+    "imgUrl": "https://www.ue.ba/img/product/32886--Lenovo-prijenosno-raunalo-IdeaPad-Gaming-3-15ACH6-82K201RBSC-1.webp",
+    "category": "laptops",
+    "specifications": [
+      { "display": "15.6 inch, 1920 x 1080px, 165Hz" },
+      {
+        "processor": "AMD Ryzen 7 5800H (3200-4400MHz, cores: 8/16 (physical/logical), Cache: 16384)"
+      },
+      { "memory": "16GB DDR4" },
+      { "storage": "1024GB SSD" },
+      { "graphics": "Nvidia GeForce RTX 3060 6GB, Type: Additional" },
+      { "system": "FreeDos" },
+      { "keyboard": "Localization: BiH, Background lighting: White" },
+      { "warranty": "24 months" },
+      { "weight": "2.6kg" },
+      { "color": "Black" },
+      {
+        "other": "LAN, WebCam, WiFI 6, LAN, Bluetooth, HDMI, 2x USB 3.2 Type-A, USB 3.2 Type-C, Headphone/microphone combo, White Backlit keyboard, Battery: 60Wh"
+      }
+    ]
+  },
+  {
+    "name": "LENOVO ThinkPad T16 laptop 21BV000QUS",
+    "price": 3099,
+    "brand": "LENOVO",
+    "rating": 4.6,
+    "imgUrl": "https://www.ue.ba/img/product/33487-LENOVO-ThinkPad-T16-laptop-21BV000QUS-1.webp",
+    "category": "laptops",
+    "specifications": [
+      {
+        "display": "16 inch, 1920 x 1080px, IPS, Anti-Glare, Non-touch, HDR400, 100% sRGB, 400 nits, 60Hz"
+      },
+      {
+        "processor": "Intel Core i7-1270P (2800-4800MHz, cores: 12/18 (physical/logical), Cache: 18MB)"
+      },
+      { "memory": "32GB DDR4" },
+      { "storage": "1000GB SSD" },
+      { "graphics": "Intel Iris Xe Graphics, Type: Integrated" },
+      { "system": "Windows 11 Pro" },
+      {
+        "keyboard": "Localization: US-International, Background lighting: White"
+      },
+      { "warranty": "12 months" },
+      { "weight": "1.65kg" },
+      { "color": "Black" },
+      {
+        "other": "Webcam 1080P FHD, Wi-Fi 6E 2x2 AX, Bluetooth 5.2, LAN, 2x USB-A 3.2 Gen 1, 2x USB-C 3.2 Gen 2, Intel Thunderbolt 4, Fingerprint reader, HDMI, Headphone / mic combo, Number Pad"
+      }
+    ]
+  },
+  {
+    "name": "ReDragon - Gaming Speakers RGB Stentor GS500",
+    "price": 43,
+    "brand": "ReDragon",
+    "rating": 4.55,
+    "imgUrl": "https://www.ue.ba/img/product/27672-ReDragon---Gaming-Zvunici-RGB-Stentor-GS500-1.webp",
+    "category": "accessories",
+    "specifications": []
+  },
+  {
+    "name": "Logitech Gaming Mouse G600 MMO",
+    "price": 159,
+    "brand": "Logitech",
+    "imgUrl": "https://www.ue.ba/img/product/18133-Logitech-G600-Gaming-Mouse-Black-1.jpg",
+    "category": "accessories",
+    "specifications": []
+  },
+  {
+    "name": "Logitech Gaming Miš G300S",
+    "price": 75,
+    "featured": true,
+    "brand": "Logitech",
+    "imgUrl": "https://www.ue.ba/img/product/15992-Logitech-Gaming-Mi-G300S-1.jpg",
+    "category": "accessories",
+    "specifications": []
+  },
+  {
+    "name": "Esperanza Leggiero Zvučnik 2.0 EP111",
+    "price": 11,
+    "featured": true,
+    "brand": "Esperanza",
+    "imgUrl": "https://www.ue.ba/img/product/30148-Esperanza-Leggiero-Zvunik-20-EP111-1.jpg",
+    "category": "accessories",
+    "specifications": []
+  },
+
+  {
+    "name": "Razer Gaming Mis Mamba Elite Chroma",
+    "price": 149,
+    "brand": "Razer",
+    "imgUrl": "https://www.ue.ba/img/product/23978-Razer-Gaming-Mis-Mamba-Elite-Chroma-1.jpg",
+    "category": "accessories",
+    "specifications": []
+  },
+  {
+    "name": "Canon EOS 2000D",
+    "price": 1259,
+    "featured": true,
+    "brand": "Canon",
+    "imgUrl": "https://i1.adis.ws/i/canon/eos-2000d-bk-ef-s18-55-iii-bk-frt_square_8359a828267541b39cc45a3a8694abda?$prod-grid-1by1$",
+    "category": "cameras",
+    "specifications": []
+  },
+  {
+    "name": "Nikon D5600",
+    "price": 639,
+    "brand": "Nikon",
+    "imgUrl": "https://m.media-amazon.com/images/I/81tsCPjbmQL._AC_SL1500_.jpg",
+    "category": "cameras",
+    "specifications": []
+  }
+]
