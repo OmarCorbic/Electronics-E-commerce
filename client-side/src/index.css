@@ -196,14 +196,19 @@ body {
   @apply col-span-2;
 }
 .spec-overview {
-  @apply grid gap-2 p-2 grid-cols-2;
+  @apply grid gap-2 p-2;
   grid-template-rows: repeat(auto-fit, 1fr);
-  grid-template-columns: 1fr 8fr;
 }
-.spec-overview .spec-name {
+
+.spec-overview-row {
+  @apply grid gap-3;
+  grid-template-columns: 2fr 8fr;
+}
+
+.spec-overview .spec-overview-row .spec-name {
   @apply border-b-slate-200 border-b-[1px] flex justify-start items-center py-1 px-2;
 }
-.spec-overview .spec-value {
+.spec-overview .spec-overview-row .spec-value {
   @apply border-b-slate-200 border-b-[1px] flex items-center justify-start py-1 px-2;
 }
 /* Modal */

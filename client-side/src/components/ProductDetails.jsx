@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../features/cart/cartSlice";
+import { setHTTPProgress } from "../features/progress/progressSlice";
 
 const ProductDetails = () => {
   const { product } = useLoaderData();
   const dispatch = useDispatch();
   const overviewSpecs = ["display", "processor", "memory", "storage"];
+
+  useEffect(() => {
+    dispatch(setHTTPProgress(100));
+  });
 
   const handleAddToCart = (event) => {
     event.preventDefault();
@@ -31,7 +36,7 @@ const ProductDetails = () => {
           {product.specifications.map((spec, index) => {
             if (overviewSpecs.includes(Object.keys(spec)[0])) {
               return (
-                <>
+                <div key={index} className="spec-overview-row">
                   <div className="spec-name">
                     {Object.keys(spec)[0][0].toUpperCase() +
                       Object.keys(spec)[0].slice(1)}
@@ -41,7 +46,7 @@ const ProductDetails = () => {
                     {spec[Object.keys(spec)[0]]}
                     <hr />
                   </div>
-                </>
+                </div>
               );
             }
           })}

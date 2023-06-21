@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import NavPrimary from "../components/NavPrimary";
@@ -70,9 +70,7 @@ const RootLayout = () => {
       <NavSecondary />
 
       <main className="main">
-        <Suspense fallback={<div>Loading...</div>}>
-          <Outlet />
-        </Suspense>
+        <Outlet />
       </main>
 
       {showModal && (
