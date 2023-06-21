@@ -7,7 +7,7 @@ const PrimaryNav = ({ handleCartClick, handleWishlistClick }) => {
   const { quantity } = useSelector((state) => state.cart);
 
   return (
-    <nav className="primary-navbar container">
+    <nav className="primary-navbar contain">
       <div className="left-side">
         <Link className="logo" to="/">
           Logo

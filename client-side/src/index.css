@@ -19,7 +19,7 @@ body {
   display: none;
 }
 
-.container {
+.contain {
   @apply py-0 px-[15%];
 }
 
@@ -79,10 +79,10 @@ body {
 
 /* home */
 .collections {
-  @apply flex justify-around gap-x-5 items-center;
+  @apply flex justify-between items-center;
 }
 .collections article {
-  @apply flex justify-start items-center shadow-xl h-60 w-72 cursor-pointer transition duration-500;
+  @apply flex justify-center items-center shadow-xl h-60 w-72 cursor-pointer transition duration-500;
 }
 .collections article:hover {
   transform: scale(1.05);
@@ -107,7 +107,7 @@ body {
 }
 
 .overlay {
-  @apply self-stretch flex-col justify-start p-5 items-baseline bg-orange-500 opacity-90 text-white w-[90%];
+  @apply self-stretch w-full h-full flex-col justify-start p-5 items-baseline bg-orange-500 opacity-90 text-white;
   clip-path: polygon(0 0, 100% 0%, 20% 100%, 0% 100%);
   transition: 0.5s;
 }

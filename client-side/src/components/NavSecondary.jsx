@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const SecondaryNav = () => {
   return (
-    <nav className="secondary-navbar container">
+    <nav className="secondary-navbar contain">
       <NavLink to="/">Home</NavLink>
       <NavLink to="/products/laptops">Laptops</NavLink>
       <NavLink to="/products/smartphones">Smartphones</NavLink>

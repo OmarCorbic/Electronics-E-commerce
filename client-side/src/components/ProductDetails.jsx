@@ -21,7 +21,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="single-product-display container">
+    <div className="single-product-display contain">
       <div className="single-product-img">
         <img src={`${product.imgUrl}`} alt="Product image" />
       </div>
