@@ -17,7 +17,14 @@ const ProductDetails = () => {
   const handleAddToCart = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    dispatch(addToCart({ id: product._id, quantity: 1 }));
+    dispatch(
+      addToCart({
+        id: product._id,
+        name: product.name,
+        price: product.price,
+        quantity: 1,
+      })
+    );
   };
   const handleAddToWishlist = (event) => {
     event.preventDefault();

@@ -204,7 +204,6 @@ const Products = () => {
             Reset filters
           </button>
 
-          <div className="bg-black">Hello</div>
           {/* <pre
             style={{
               color: "black",

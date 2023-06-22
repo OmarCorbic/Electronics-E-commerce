@@ -212,35 +212,3 @@ body {
   @apply border-b-slate-200 border-b-[1px] flex items-center justify-start py-1 px-2;
 }
 /* Modal */
-
-.modal-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 9997;
-}
-
-.modal-container {
-  font-weight: 600;
-  background-color: #0a192f;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  position: fixed;
-  left: 50%;
-  border-radius: 10px;
-  width: 400px;
-  padding: 20px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 9998;
-}
-
-.modal-background {
-  @apply fixed left-0 top-0 w-full h-full bg-opacity-50 bg-black z-[9997];
-}
-
-.modal-container {
-  @apply min-h-[75%] min-w-[33.333%] rounded-md p-5 bg-white fixed top-[50%] left-[50%] bg-opacity-100;
-}
