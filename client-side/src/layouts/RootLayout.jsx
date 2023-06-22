@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import NavPrimary from "../components/NavPrimary";
 import NavSecondary from "../components/NavSecondary";
 import Modal from "../components/Modal";
@@ -8,6 +8,7 @@ import Cart from "../components/Cart";
 import { useSelector } from "react-redux";
 
 const RootLayout = () => {
+  const location = useLocation();
   const [showModal, setShowModal] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showWishlist, setShowWishlist] = useState(false);
@@ -22,6 +23,14 @@ const RootLayout = () => {
     };
   }, [showModal]);
 
+  useEffect(() => {
+    return () => {
+      setShowModal(false);
+      setShowCart(false);
+      setShowWishlist(false);
+    };
+  }, [location]);
+
   const handleCartClick = () => {
     setShowModal(true);
     setShowCart(true);
@@ -32,7 +41,7 @@ const RootLayout = () => {
   };
 
   const hideModal = (e) => {
-    if (e.target.classList.contains("modal-background")) {
+    if (e.target.id === "background" || e.target.id === "close") {
       setShowModal(false);
       showWishlist ? setShowWishlist(false) : setShowCart(false);
       return;
@@ -73,18 +82,29 @@ const RootLayout = () => {
         <Outlet />
       </main>
 
-      {showModal && (
+      {showCart && (
+        <Modal hideModal={hideModal}>
+          <Cart hideModal={hideModal} />
+        </Modal>
+      )}
+      {showWishlist && (
+        <Modal hideModal={hideModal}>
+          {/* <Wishlist hideModal={hideModal} /> */}
+        </Modal>
+      )}
+
+      {/* {showModal && (
         <Modal
           hideModal={hideModal}
-          render={() => {
+          render={(hideModal) => {
             if (showCart) {
-              return <Cart />;
+              return <Cart hideModal={hideModal} />;
             } else if (showWishlist) {
               return <h1>Wishlist</h1>;
             }
           }}
         />
-      )}
+      )} */}
     </>
   );
 };
