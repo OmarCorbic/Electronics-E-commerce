@@ -14,7 +14,7 @@ const Products = () => {
   const [filtersInfo, setFiltersInfo] = useState({
     brands: [],
   });
-  console.log("products component rendered");
+
   const formik = useFormik({
     initialValues: {
       maxPrice: 0,
@@ -40,7 +40,6 @@ const Products = () => {
   });
 
   useEffect(() => {
-    console.log("search useEffect");
     if (params.search) {
       setFilters((prevState) => {
         return { ...prevState, search: params.search };
@@ -55,14 +54,14 @@ const Products = () => {
 
   useEffect(() => {
     const cancelToken = axios.CancelToken.source();
-    console.log("fetch useEffect");
+
     const loadProducts = async (category, filters) => {
       try {
         let apiUrl = `http://localhost:3000/api/v1/products?category=${category}`;
 
         if (filters) {
           const filterParams = new URLSearchParams(filters).toString();
-          console.log(filterParams);
+
           apiUrl += `&${filterParams}`;
         }
 
@@ -93,7 +92,6 @@ const Products = () => {
     loadProducts(params.category, filters);
 
     return () => {
-      console.log("fetch useEffect cleanup");
       cancelToken.cancel();
     };
   }, [params.category, filters]);
