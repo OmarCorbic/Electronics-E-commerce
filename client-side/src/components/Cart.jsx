@@ -40,7 +40,7 @@ const Cart = ({ hideModal }) => {
                   {item.quantity}
                 </span>
                 <span className="flex items-center justify-center">
-                  {item.price + " KM"}
+                  {`${item.price} KM`}
                 </span>
                 <button
                   className="flex items-center justify-center p-2 rounded-sm text-red-600"
