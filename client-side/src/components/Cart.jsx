@@ -7,10 +7,17 @@ import { Link } from "react-router-dom";
 const Cart = ({ hideModal }) => {
   const items = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
+  const totalPrice = items.reduce(
+    (acc, item) => acc + item.quantity * item.price,
+    0
+  );
 
   return (
     <div className="flex flex-col justify-between h-full">
-      <div className="text-2xl text-gray-800 p-2 ">Cart items</div>
+      <div className="flex items-center justify-between">
+        <span className="text-2xl text-gray-800 p-2 ">Cart items</span>
+        {items.length > 0 && <span>Total price: {`$${totalPrice}`}</span>}
+      </div>
       {items.length < 1 ? (
         <div className="flex items-center justify-center text-center text-2xl text-gray-400 p-2 ">
           Your cart is empty! <br />
@@ -20,7 +27,7 @@ const Cart = ({ hideModal }) => {
         <div className="mb-auto min-h-fit overflow-auto text-sm">
           <div
             style={{ gridTemplateColumns: "4fr 1fr 1fr 1fr" }}
-            className="grid grid-rows-1 bg-gray-200 p-2 mb-2 text-gray-700 rounded-sm"
+            className="grid grid-rows-1 bg-gray-400 p-2 mb-2 text-gray-900 rounded-sm"
           >
             <span className="">Name</span>
             <span className="flex items-center justify-center">Quantity</span>
@@ -33,14 +40,14 @@ const Cart = ({ hideModal }) => {
                 className="grid grid-rows-1 bg-gray-200 p-2 mb-2 text-gray-700 rounded-sm"
                 key={item.id}
               >
-                <Link to={`/product/${item.id}`}>
+                <Link className="flex items-center" to={`/product/${item.id}`}>
                   <span>{item.name} </span>
                 </Link>
                 <span className="flex items-center justify-center">
                   {item.quantity}
                 </span>
                 <span className="flex items-center justify-center">
-                  {`${item.price} KM`}
+                  {`$${item.price}`}
                 </span>
                 <button
                   className="flex items-center justify-center p-2 rounded-sm text-red-600"
