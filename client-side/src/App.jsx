@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 
 // layouts
 import RootLayout from "./layouts/RootLayout";
+import ProtectedRoutes from "./layouts/ProtectedRoutes";
 
 // pages
 import Home from "./pages/Home/Home";
@@ -21,6 +22,7 @@ import { getProductDetails } from "./components/ProductDetails";
 
 // store
 import store from "./store/store";
+import Profile from "./pages/Profile/Profile";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,6 +35,10 @@ const router = createBrowserRouter(
         element={<ProductDetails />}
         loader={({ params }) => getProductDetails(params)}
       />
+      <Route element={<ProtectedRoutes />}>
+        <Route path="/profile" element={<Profile />} />
+      </Route>
+
       <Route path="*" element={<NotFound />} />
     </Route>
   )
