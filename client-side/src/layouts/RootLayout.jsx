@@ -1,50 +1,46 @@
 import React, { useEffect } from "react";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Outlet, useLocation } from "react-router-dom";
 import NavPrimary from "../components/NavPrimary";
 import NavSecondary from "../components/NavSecondary";
 import Modal from "../components/Modal";
 import Cart from "../components/Cart";
-import { useSelector } from "react-redux";
+import SignUp from "../components/auth/SignUp";
+import LogIn from "../components/auth/LogIn";
+import {
+  showCart,
+  showLogIn,
+  showSignUp,
+  showWishlist,
+  hideModal,
+} from "../features/modal/modalSlice";
 
 const RootLayout = () => {
+  const { progress: progress, modal: modal } = useSelector((state) => state);
   const location = useLocation();
-  const [showModal, setShowModal] = useState(false);
-  const [showCart, setShowCart] = useState(false);
-  const [showWishlist, setShowWishlist] = useState(false);
-  const progress = useSelector((state) => state.progress.progress);
-
-  useEffect(() => {
-    if (showModal) {
-      document.body.style.overflow = "hidden";
-    }
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [showModal]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     return () => {
-      setShowModal(false);
-      setShowCart(false);
-      setShowWishlist(false);
+      dispatch(hideModal());
     };
   }, [location]);
 
   const handleCartClick = () => {
-    setShowModal(true);
-    setShowCart(true);
+    dispatch(showCart());
   };
   const handleWishlistClick = () => {
-    setShowModal(true);
-    setShowWishlist(true);
+    dispatch(showWishlist());
   };
-
-  const hideModal = (e) => {
+  const handleLogInClick = () => {
+    dispatch(showLogIn());
+  };
+  const handleSignUpClick = () => {
+    dispatch(showSignUp());
+  };
+  const handleHideModal = (e) => {
     if (e.target.id === "background" || e.target.id === "close") {
-      setShowModal(false);
-      showWishlist ? setShowWishlist(false) : setShowCart(false);
-      return;
+      dispatch(hideModal());
     }
   };
 
@@ -53,23 +49,16 @@ const RootLayout = () => {
       <NavPrimary
         handleWishlistClick={handleWishlistClick}
         handleCartClick={handleCartClick}
+        handleLogInClick={handleLogInClick}
+        handleSignUpClick={handleSignUpClick}
       />
-
-      <div
-        style={{
-          position: "absolute",
-          backgroundColor: "#2c2c2c",
-          zIndex: 9996,
-          width: "100%",
-          height: "6px",
-        }}
-      >
+      <div className=" bg-slate-900 z-[9996] w-full h-2">
         <span
           style={{
             display: "block",
-            width: `${progress}%`,
-            height: "inherit",
+            height: "100%",
             transition: "0.3s",
+            width: `${progress}%`,
             backgroundImage:
               "linear-gradient(90deg, #33ffbb, #31acff, #2ad39f, #0170f0)",
           }}
@@ -82,14 +71,24 @@ const RootLayout = () => {
         <Outlet />
       </main>
 
-      {showCart && (
-        <Modal hideModal={hideModal}>
-          <Cart hideModal={hideModal} />
+      {modal.showCart && (
+        <Modal hideModal={handleHideModal}>
+          <Cart hideModal={handleHideModal} />
         </Modal>
       )}
-      {showWishlist && (
-        <Modal hideModal={hideModal}>
-          {/* <Wishlist hideModal={hideModal} /> */}
+      {modal.showWishlist && (
+        <Modal hideModal={handleHideModal}>
+          {/* <Wishlist hideModal={handleHideModal} /> */}
+        </Modal>
+      )}
+      {modal.showLogIn && (
+        <Modal hideModal={handleHideModal}>
+          <LogIn hideModal={handleHideModal} />
+        </Modal>
+      )}
+      {modal.showSignUp && (
+        <Modal hideModal={handleHideModal}>
+          <SignUp hideModal={handleHideModal} />
         </Modal>
       )}
 
