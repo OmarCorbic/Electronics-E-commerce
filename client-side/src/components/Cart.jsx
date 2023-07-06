@@ -27,7 +27,7 @@ const Cart = ({ hideModal }) => {
         <div className="mb-auto min-h-fit overflow-auto text-sm">
           <div
             style={{ gridTemplateColumns: "4fr 1fr 1fr 1fr" }}
-            className="grid grid-rows-1 bg-gray-400 p-2 mb-2 text-gray-900 rounded-sm"
+            className="grid grid-rows-1 border-2 border-blue-300 rounded p-2 mb-2 text-gray-900"
           >
             <span className="">Name</span>
             <span className="flex items-center justify-center">Quantity</span>
@@ -37,7 +37,7 @@ const Cart = ({ hideModal }) => {
             return (
               <div
                 style={{ gridTemplateColumns: "4fr 1fr 1fr 1fr" }}
-                className="grid grid-rows-1 bg-gray-200 p-2 mb-2 text-gray-700 rounded-sm"
+                className="grid grid-rows-1 bg-gray-200 p-2 mb-2 text-gray-700 rounded"
                 key={item.id}
               >
                 <Link className="flex items-center" to={`/product/${item.id}`}>
@@ -50,7 +50,7 @@ const Cart = ({ hideModal }) => {
                   {`$${item.price}`}
                 </span>
                 <button
-                  className="flex items-center justify-center p-2 rounded-sm text-red-600"
+                  className="flex items-center justify-center p-2 text-red-600"
                   onClick={() => dispatch(removeFromCart({ id: item.id }))}
                 >
                   <BsFillTrashFill size={20} />
@@ -63,12 +63,12 @@ const Cart = ({ hideModal }) => {
       <div className="flex items-center justify-around mt-2">
         <button
           id="close"
-          className="py-2 px-6 w-1/3 text-white bg-sky-500 rounded-sm"
+          className="py-2 px-6 w-1/3 text-white bg-sky-500 rounded"
           onClick={hideModal}
         >
           Cancel
         </button>
-        <button className="py-2 px-6 w-1/3 text-white bg-sky-500 rounded-sm">
+        <button className="py-2 px-6 w-1/3 text-white bg-sky-500 rounded">
           Continue
         </button>
       </div>
