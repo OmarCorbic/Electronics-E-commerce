@@ -5,18 +5,39 @@ import {
   AiOutlineUserAdd,
   AiOutlineUser,
 } from "react-icons/ai";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import { logOut } from "../features/user/userSlice";
+import {
+  showCart,
+  showLogIn,
+  showSignUp,
+  showWishlist,
+} from "../features/modal/modalSlice";
 
-const PrimaryNav = ({
-  handleCartClick,
-  handleWishlistClick,
-  handleLogInClick,
-  handleSignUpClick,
-}) => {
-  const { quantity } = useSelector((state) => state.cart);
-  const loggedIn = true;
+const PrimaryNav = () => {
+  const {
+    cart: { quantity },
+    user: { loggedIn },
+  } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  const handleCartClick = () => {
+    dispatch(showCart());
+  };
+  const handleWishlistClick = () => {
+    dispatch(showWishlist());
+  };
+  const handleLogInClick = () => {
+    dispatch(showLogIn());
+  };
+  const handleSignUpClick = () => {
+    dispatch(showSignUp());
+  };
+  const handleLogOut = () => {
+    dispatch(logOut());
+  };
 
   return (
     <nav className="primary-navbar contain">
@@ -31,6 +52,12 @@ const PrimaryNav = ({
       <div className="right-side">
         {loggedIn && (
           <>
+            <div onClick={handleLogOut} className="wishlist-btn btn">
+              <div className="icon">
+                <AiOutlineHeart size="26" />
+              </div>
+              <span>Log out</span>
+            </div>
             <div onClick={handleWishlistClick} className="wishlist-btn btn">
               <div className="icon">
                 <AiOutlineHeart size="26" />
