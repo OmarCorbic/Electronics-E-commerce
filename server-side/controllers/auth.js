@@ -1,5 +1,5 @@
 const User = require("../models/User");
-const { BadRequestError, UnauthorizedError } = require("../errors");
+const { BadRequestError } = require("../errors");
 const { StatusCodes } = require("http-status-codes");
 
 const register = async (req, res) => {
@@ -28,24 +28,26 @@ const login = async (req, res) => {
 
   const token = user.generateJWT();
 
+  const hoursInMilliseconds = 3 * 60 * 60 * 1000; //  3 hours in milliseconds
+  const expirationDate = new Date(Date.now() + hoursInMilliseconds);
   res
     .cookie("access_token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      sameSite: "none",
+      expires: expirationDate,
+      secure: true,
     })
     .status(StatusCodes.OK)
-    .json({ message: "Successfully logged in!" });
+    .json({
+      userId: user._id,
+      name: `${user.firstName + " " + user.lastName}`,
+    });
 };
 
 const logout = (req, res) => {
   return res
-    .clearCookie("access_token")
+    .clearCookie("access_token", { sameSite: "none", secure: true })
     .status(StatusCodes.OK)
-    .json({ message: "Successfully logged out!" });
+    .json();
 };
 
-const getAccessStatus = (req, res) => {
-  res.status(StatusCodes.OK).json({ status: true });
-};
-
-module.exports = { register, login, logout, getAccessStatus };
+module.exports = { register, login, logout };

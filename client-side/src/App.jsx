@@ -4,25 +4,21 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import { Provider } from "react-redux";
+import Cookies from "js-cookie";
 
 // layouts
 import RootLayout from "./layouts/RootLayout";
 import ProtectedRoutes from "./layouts/ProtectedRoutes";
 
 // pages
-import Home from "./pages/Home/Home";
-import Products from "./pages/Products/Products";
+import Home from "./pages/Home";
+import Products from "./pages/Products";
 import NotFound from "./components/NotFound";
 import ProductDetails from "./components/ProductDetails";
+import Profile from "./pages/Profile";
 
 // loaders
-// import { getProducts } from "./pages/Products/Products";
 import { getProductDetails } from "./components/ProductDetails";
-
-// store
-import store from "./store/store";
-import Profile from "./pages/Profile/Profile";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -45,11 +41,7 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return (
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

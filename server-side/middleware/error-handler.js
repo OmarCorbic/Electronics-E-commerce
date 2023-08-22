@@ -19,11 +19,12 @@ const errorHandlerMiddleware = (err, req, res, next) => {
   }
 
   if (err.code && err.code === 11000) {
-    customError.msg = `Duplicate value entered for ${Object.keys(
+    customError.message = `User with entered ${Object.keys(
       err.keyValue
-    )} field, please choose another one.`;
+    )} already exists, please choose another one.`;
     customError.statusCode = StatusCodes.BAD_REQUEST;
   }
+
   res.status(customError.statusCode).json({ message: customError.message });
 };
 

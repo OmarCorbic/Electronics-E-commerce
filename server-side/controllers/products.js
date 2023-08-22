@@ -117,4 +117,15 @@ const getProduct = async (req, res) => {
   res.status(200).json({ product });
 };
 
-module.exports = { getAllProducts, createProduct, getProduct };
+const getCategories = async (req, res) => {
+  const categories = await Product.find({}).select("category");
+  let uniqueCategories = [];
+  categories.forEach((item) => {
+    if (!uniqueCategories.includes(item.category)) {
+      uniqueCategories.push(item.category);
+    }
+  });
+  res.status(200).json({ categories: uniqueCategories });
+};
+
+module.exports = { getAllProducts, createProduct, getProduct, getCategories };

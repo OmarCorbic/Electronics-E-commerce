@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../features/cart/cartSlice";
-import { setHTTPProgress } from "../features/progress/progressSlice";
+import { addToCart } from "../features/cartSlice";
+import { setHTTPProgress } from "../features/progressSlice";
 
 const ProductDetails = () => {
   const { product } = useLoaderData();
@@ -33,23 +33,28 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="single-product-display contain">
-      <div className="single-product-img">
-        <img src={`${product.imgUrl}`} alt="Product image" />
+    <div className="flex flex-col gap-5 px-[8%] md:grid md:grid-cols-2 md:grid-rows-2">
+      <div className="flex justify-center border-b-[1px] border-gray-300 px-6 md:border-none">
+        <img
+          className="w-full max-w-[400px]"
+          src={`${product.imgUrl}`}
+          alt="Product image"
+        />
       </div>
-      <div className="single-product-info">
-        <p className="name">{product.name}</p>
-        <div className="spec-overview">
+
+      <div className="md:flex md:flex-col md:justify-center">
+        <p className="py-4 text-left text-xl text-gray-500">{product.name}</p>
+        <div className="spec-overview text-xs md:text-sm">
           {product.specifications.map((spec, index) => {
             if (overviewSpecs.includes(Object.keys(spec)[0])) {
               return (
                 <div key={index} className="spec-overview-row">
-                  <div className="spec-name">
+                  <div className="flex items-center justify-start border-b-[1px] border-b-slate-200">
                     {Object.keys(spec)[0][0].toUpperCase() +
                       Object.keys(spec)[0].slice(1)}
                     <hr />
                   </div>
-                  <div className="spec-value">
+                  <div className="flex items-center justify-start border-b-[1px] border-b-slate-200">
                     {spec[Object.keys(spec)[0]]}
                     <hr />
                   </div>
@@ -58,6 +63,7 @@ const ProductDetails = () => {
             }
           })}
         </div>
+
         <div style={{ display: "flex", gap: "5px", marginTop: "20px" }}>
           <button
             onClick={(e) => handleAddToCart(e)}
@@ -74,7 +80,7 @@ const ProductDetails = () => {
         </div>
       </div>
 
-      <div className="single-product-reviews">
+      <div className="md:col-span-2">
         <hr />
         Reviews
       </div>
@@ -86,7 +92,7 @@ export const getProductDetails = async (params) => {
   const { id } = params;
   try {
     const response = await axios.get(
-      `http://localhost:3000/api/v1/products/${id}`
+      `http://localhost:3000/api/v1/products/product/${id}`
     );
     return response.data;
   } catch (err) {

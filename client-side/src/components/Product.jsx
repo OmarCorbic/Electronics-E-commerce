@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { addToCart } from "../features/cart/cartSlice";
+import { addToCart } from "../features/cartSlice";
 import { AiOutlineHeart } from "react-icons/ai";
 
 const Product = ({ product }) => {
@@ -26,16 +26,16 @@ const Product = ({ product }) => {
   };
 
   return (
-    <Link to={`/product/${product._id}`}>
-      <div className="product-card">
+    <Link className="product-card" to={`/product/${product._id}`}>
+      <>
         <div>
           <p className="product-card-header">{product.name}</p>
+          <p className="price">{"$" + product.price}</p>
         </div>
         <div className="product-card-body">
           <img src={`${product.imgUrl}`} alt="Product image" />
         </div>
         <div className="product-card-footer">
-          <p className="price">{"$" + product.price}</p>
           <button onClick={handleAddToCart} className="add-to-cart-button">
             Add to Cart
           </button>
@@ -46,7 +46,7 @@ const Product = ({ product }) => {
             <AiOutlineHeart color="red" size="26" />
           </button>
         </div>
-      </div>
+      </>
     </Link>
   );
 };

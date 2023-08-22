@@ -4,9 +4,11 @@ const {
   getAllProducts,
   getProduct,
   createProduct,
+  getCategories,
 } = require("../controllers/products");
 
 router.route("/").get(getAllProducts).post(createProduct);
-router.route("/:id").get(getProduct);
+router.route("/categories").get(getCategories);
+router.route("/product/:id").get(getProduct);
 
 module.exports = router;
