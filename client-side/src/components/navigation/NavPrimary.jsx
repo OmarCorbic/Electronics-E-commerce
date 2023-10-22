@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import logo from "../../images/Elecom-logos_transparent.png";
+import { useRef } from "react";
 import {
   AiOutlineShoppingCart,
   AiOutlineMenu,
@@ -55,9 +56,11 @@ const PrimaryNav = () => {
   };
 
   return (
-    <nav className="px-15 text-md relative flex items-center justify-between bg-slate-900 px-[8%] py-5 text-white lg:text-lg">
-      <div className="w-[8vw]">
-        <Link to="/">Logo</Link>
+    <nav className=" text-md relative flex items-center justify-between bg-slate-900 px-[8%] py-5 text-white lg:text-lg">
+      <div className=" h-10 w-20 md:h-20 md:w-52 lg:mr-10">
+        <Link to="/">
+          <img className="h-full w-full" src={logo} alt="" />
+        </Link>
       </div>
 
       <SearchBar />
