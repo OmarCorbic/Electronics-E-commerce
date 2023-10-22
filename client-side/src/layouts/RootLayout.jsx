@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import NavPrimary from "../components/navigation/NavPrimary";
 import NavSecondary from "../components/navigation/NavSecondary";
 import Modal from "../components/Modal";
@@ -11,8 +11,10 @@ import { hideModal } from "../features/modalSlice";
 import { Toaster } from "react-hot-toast";
 import Cookies from "js-cookie";
 import { logout } from "../features/authSlice";
+import Footer from "../components/Footer";
 
 const RootLayout = () => {
+  const location = useLocation();
   const { progress: progress, modal: modal } = useSelector((state) => state);
   const dispatch = useDispatch();
 
@@ -20,7 +22,7 @@ const RootLayout = () => {
     if (!Cookies.get("access_token")) {
       dispatch(logout());
     }
-  });
+  }, [location]);
 
   const handleHideModal = (e) => {
     if (e.target.id === "background" || e.target.id === "close") {
@@ -29,11 +31,11 @@ const RootLayout = () => {
   };
 
   return (
-    <>
+    <div className="flex h-screen flex-col">
       <Toaster position="top-center" reverseOrder={true}></Toaster>
       <NavPrimary />
 
-      <div className=" z-[9996] h-2 w-full bg-slate-900">
+      <div className=" h-2 w-full bg-slate-900">
         <span
           style={{
             display: "block",
@@ -48,9 +50,11 @@ const RootLayout = () => {
 
       <NavSecondary />
 
-      <main>
+      <main className="h-full">
         <Outlet />
       </main>
+
+      <Footer />
 
       {modal.showCart && (
         <Modal hideModal={handleHideModal}>
@@ -72,7 +76,7 @@ const RootLayout = () => {
           <Register hideModal={handleHideModal} />
         </Modal>
       )}
-    </>
+    </div>
   );
 };
 
