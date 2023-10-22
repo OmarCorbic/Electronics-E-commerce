@@ -1,5 +1,6 @@
 require("express-async-errors");
 require("dotenv").config();
+const path = require("path");
 
 // security imports
 const cookieParser = require("cookie-parser");
@@ -17,7 +18,7 @@ const paymentRouter = require("./routes/payment");
 
 // middleware imports
 const errorHandlerMiddleware = require("./middleware/error-handler");
-const notFoundMiddleware = require("./middleware/not-found");
+// const notFoundMiddleware = require("./middleware/not-found");
 
 const express = require("express");
 const app = express();
@@ -25,7 +26,8 @@ const app = express();
 // middleware
 app.use(helmet());
 app.use(express.json());
-app.use(cors({ origin: "http://127.0.0.1:5173", credentials: true }));
+app.use(express.static(__dirname + "/build"));
+app.use(cors());
 app.use(cookieParser());
 
 // routes
@@ -36,7 +38,10 @@ app.use("/api/v1/payment", paymentRouter);
 
 // error middleware
 app.use(errorHandlerMiddleware);
-app.use(notFoundMiddleware);
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+// app.use(notFoundMiddleware);
 
 const port = process.env.PORT || 3000;
 const start = async () => {
