@@ -58,7 +58,7 @@ const Products = () => {
     const cancelToken = axios.CancelToken.source();
 
     const loadProducts = async (category, filters) => {
-      let apiUrl = `http://localhost:3000/api/v1/products?category=${category}`;
+      let apiUrl = `/api/v1/products?category=${category}`;
 
       if (filters) {
         const filterParams = new URLSearchParams(filters).toString();

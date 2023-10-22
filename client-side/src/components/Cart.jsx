@@ -16,15 +16,12 @@ const Cart = ({ hideModal }) => {
 
   const handleCheckout = async () => {
     try {
-      const res = await axios.post(
-        "http://localhost:3000/api/v1/payment/checkout-session",
-        {
-          items: items.map((item) => ({
-            id: item.id,
-            quantity: item.quantity,
-          })),
-        }
-      );
+      const res = await axios.post("/api/v1/payment/checkout-session", {
+        items: items.map((item) => ({
+          id: item.id,
+          quantity: item.quantity,
+        })),
+      });
       window.location = res.data.url;
     } catch (err) {
       toast.error(

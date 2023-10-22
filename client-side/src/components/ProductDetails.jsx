@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../features/cartSlice";
 import { setHTTPProgress } from "../features/progressSlice";
+import toast from "react-hot-toast";
 
 const ProductDetails = () => {
   const { product } = useLoaderData();
@@ -91,12 +92,11 @@ const ProductDetails = () => {
 export const getProductDetails = async (params) => {
   const { id } = params;
   try {
-    const response = await axios.get(
-      `http://localhost:3000/api/v1/products/product/${id}`
-    );
+    const response = await axios.get(`/api/v1/products/product/${id}`);
     return response.data;
   } catch (err) {
-    console.log(err);
+    toast.error(err?.response?.data?.message);
+    return null;
   }
 };
 
