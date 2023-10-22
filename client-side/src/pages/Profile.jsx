@@ -42,7 +42,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="py-5">
+    <div className="h-full py-5">
       <Formik
         initialValues={initialValues}
         // validate={(values) => validateSignUp(values)}

@@ -11,7 +11,7 @@ const Home = () => {
     imgRef.current.classList.remove("blur-sm");
   };
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex h-full flex-col items-center ">
       <section className="relative flex w-full items-center justify-center lg:justify-start">
         <div
           ref={imgRef}

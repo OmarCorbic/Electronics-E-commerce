@@ -123,7 +123,7 @@ const Products = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-5">
+    <div className="grid h-full grid-cols-1 md:grid-cols-5">
       <button
         onClick={handleToggleFilters}
         className="cursor-pointer bg-blue-400 p-1 text-white md:hidden"
