@@ -24,6 +24,10 @@ const errorHandlerMiddleware = (err, req, res, next) => {
     )} already exists, please choose another one.`;
     customError.statusCode = StatusCodes.BAD_REQUEST;
   }
+  if (err.code && err.code === "ENOTFOUND") {
+    customError.message = "Database error";
+    customError.statusCode = StatusCodes.NOT_FOUND;
+  }
 
   res.status(customError.statusCode).json({ message: customError.message });
 };
