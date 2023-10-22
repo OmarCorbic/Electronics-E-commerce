@@ -48,7 +48,7 @@ const RootLayout = () => {
 
       <NavSecondary />
 
-      <main className="py-[20px]">
+      <main>
         <Outlet />
       </main>
 
