@@ -42,16 +42,10 @@ const SignUp = () => {
         {({ errors, values, isSubmitting }) => (
           <Form className="flex h-full w-full flex-col items-center justify-center gap-3 text-sm">
             <div className="flex-col items-center justify-center rounded-full bg-blue-200 p-8 text-xl text-gray-500 ">
-              {isLoading ? (
-                <Spinner />
-              ) : (
-                <>
-                  <div className="flex items-center justify-center">
-                    <AiOutlineUserAdd size="50" color="white" />
-                  </div>
-                  <p>Sign up</p>
-                </>
-              )}
+              <div className="flex items-center justify-center">
+                <AiOutlineUserAdd size="50" color="white" />
+              </div>
+              <p>Sign up</p>
             </div>
 
             <Field

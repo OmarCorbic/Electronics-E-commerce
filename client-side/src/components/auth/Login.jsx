@@ -40,16 +40,10 @@ const Login = () => {
         {({ errors, values, isSubmitting }) => (
           <Form className="flex h-full w-full flex-col items-center justify-center gap-4">
             <div className="flex-col items-center justify-center rounded-full bg-blue-200 px-11 py-8 text-xl text-gray-500 ">
-              {isLoading ? (
-                <Spinner />
-              ) : (
-                <>
-                  <div className="flex items-center justify-center">
-                    <AiOutlineLogin size="50" color="white" />
-                  </div>
-                  <p>Log in</p>
-                </>
-              )}
+              <div className="flex items-center justify-center">
+                <AiOutlineLogin size="50" color="white" />
+              </div>
+              <p>Log in</p>
             </div>
 
             <Field
