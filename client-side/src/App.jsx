@@ -4,21 +4,17 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Cookies from "js-cookie";
 
 // layouts
 import RootLayout from "./layouts/RootLayout";
-import ProtectedRoutes from "./layouts/ProtectedRoutes";
+import ProtectedRoutes, { checkLoginStatus } from "./layouts/ProtectedRoutes";
 
 // pages
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import NotFound from "./components/NotFound";
-import ProductDetails from "./components/ProductDetails";
+import ProductDetails, { getProductDetails } from "./components/ProductDetails";
 import Profile from "./pages/Profile";
-
-// loaders
-import { getProductDetails } from "./components/ProductDetails";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,7 +27,7 @@ const router = createBrowserRouter(
         element={<ProductDetails />}
         loader={({ params }) => getProductDetails(params)}
       />
-      <Route element={<ProtectedRoutes />}>
+      <Route element={<ProtectedRoutes />} loader={checkLoginStatus}>
         <Route path="/profile" element={<Profile />} />
       </Route>
 

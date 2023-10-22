@@ -1,23 +1,23 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Navigate, Outlet } from "react-router-dom";
-import { showLogIn } from "../features/modalSlice";
+import React from "react";
+import { Navigate, Outlet, useLoaderData } from "react-router-dom";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const ProtectedRoutes = () => {
-  const { userInfo } = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
+  const data = useLoaderData();
 
-  useEffect(() => {
-    if (!userInfo) {
-      dispatch(showLogIn());
-    }
-  });
-
-  if (userInfo) {
+  if (data?.status === true) {
     return <Outlet />;
-  } else {
-    return <Navigate to={"/"} replace />;
-  }
+  } else return <Navigate to="/" />;
 };
 
+export const checkLoginStatus = async () => {
+  try {
+    const response = await axios.post(`/api/v1/auth/verify-access`);
+    return response.data;
+  } catch (err) {
+    toast.error(err?.response?.data?.message);
+    return null;
+  }
+};
 export default ProtectedRoutes;
