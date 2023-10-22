@@ -34,10 +34,10 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="flex flex-col gap-5 px-[8%] md:grid md:grid-cols-2 md:grid-rows-2">
+    <div className=" flex h-full flex-col gap-5 px-[8%] md:grid md:grid-cols-2 md:grid-rows-2">
       <div className="flex justify-center border-b-[1px] border-gray-300 px-6 md:border-none">
         <img
-          className="w-full max-w-[400px]"
+          className="w-full max-w-[300px]"
           src={`${product.imgUrl}`}
           alt="Product image"
         />
