@@ -56,7 +56,7 @@ const PrimaryNav = () => {
   };
 
   return (
-    <nav className=" text-md relative flex items-center justify-between bg-slate-900 px-[8%] py-5 text-white lg:text-lg">
+    <nav className="  text-md relative z-50 flex items-center justify-between bg-slate-900 px-[8%] py-5 text-white lg:text-lg">
       <div className=" h-10 w-20 md:h-20 md:w-52 lg:mr-10">
         <Link to="/">
           <img className="h-full w-full" src={logo} alt="" />
@@ -99,7 +99,7 @@ const PrimaryNav = () => {
 
             <div
               ref={dropdownRef}
-              className="absolute top-[100%] hidden w-20 bg-slate-900 text-xs md:w-32 md:text-sm group-hover:md:block"
+              className=" absolute top-[100%] hidden w-20 bg-slate-900 text-xs md:w-32 md:text-sm group-hover:md:block"
             >
               <Link
                 to="/profile"
