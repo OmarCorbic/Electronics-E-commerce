@@ -42,7 +42,7 @@ const Profile = () => {
   };
 
   return (
-    <>
+    <div className="py-5">
       <Formik
         initialValues={initialValues}
         // validate={(values) => validateSignUp(values)}
@@ -113,7 +113,7 @@ const Profile = () => {
           </Form>
         )}
       </Formik>
-    </>
+    </div>
   );
 };
 
